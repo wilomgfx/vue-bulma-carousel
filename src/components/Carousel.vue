@@ -1,11 +1,13 @@
 <template>
     <div class="container">
-        <div class="">
+        <div class="box">
             <div class="is-flex carousel__item">
-                <img :src="currentItem.src"></img>
+                <figure>
+                    <img :src="currentItem.src"></img>
+                    <figcaption class="has-text-centered">{{ currentItem.desc }}</figcaption>
+                </figure>
             </div>
         </div>
-        <hr>
         <nav class="pagination">
             <a class="button" @click="prevItem">Previous</a>
             <a class="button" @click="nextItem">Next</a>
@@ -38,7 +40,7 @@ export default {
             }
         },
         prevItem () {
-             if(this.currentIndex == 0){
+            if(this.currentIndex == 0){
                 this.currentIndex = this.carouselItems.length-1;
             }else{
                 this.currentIndex--;  

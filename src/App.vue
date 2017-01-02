@@ -19,19 +19,19 @@ export default {
     return {
       images : [
         {
-          src : 'http://lorempixel.com/400/200/sports/1/',
+          src : 'http://lorempixel.com/1920/1080/sports/1/',
           desc : 'Image1'
         },
         {
-          src : 'http://lorempixel.com/400/200/sports/2/',
+          src : 'http://lorempixel.com/1920/1080/sports/2/',
           desc : 'Image2'
         },
         {
-          src : 'http://lorempixel.com/400/200/sports/3/',
+          src : 'http://lorempixel.com/1920/1080/sports/3/',
           desc : 'Image3'
         },
         {
-          src : 'http://lorempixel.com/400/200/sports/5/',
+          src : 'http://lorempixel.com/1920/1080/sports/5/',
           desc : 'Image4'
         },
       ]
