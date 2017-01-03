@@ -4,25 +4,34 @@
             <div class="is-flex carousel__item">
                 <figure>
                     <img :src="currentItem.src"></img>
-                    <figcaption class="has-text-centered">{{ currentItem.desc }}</figcaption>
+                    <figcaption class="has-text-centered">
+                        <p class="title is-3">{{ currentItem.title }}</p>
+                        <p class="subtitle is-5"> {{ currentItem.desc }} </p>
+                        <span v-html="currentItem.other"></span>
+                    </figcaption>
                 </figure>
             </div>
+            <nav class="pagination">
+                <a class="button" @click="prevItem">Previous</a>
+                <a class="button" @click="nextItem">Next</a>
+                <ul>
+                    <li v-for="(item, index) in carouselItems">
+                        <a class="button" @click="showAtIndex(index)" :class="{ 'is-primary' : currentIndex == index }">{{ index+1 }}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav class="pagination">
-            <a class="button" @click="prevItem">Previous</a>
-            <a class="button" @click="nextItem">Next</a>
-            <ul>
-                <li v-for="(item, index) in carouselItems">
-                    <a class="button" @click="showAtIndex(index)" :class="{ 'is-primary' : currentIndex == index }">{{ index+1 }}</a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </template>
 <script>
 export default {
     name : 'vue-carousel',
-    props: ['carouselItems'],
+    props: {
+        carouselItems : {
+            Type : Array,
+            required : true
+        }
+    },
     created () {
         this.currentIndex = 0;
     },
